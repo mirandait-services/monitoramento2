@@ -20,9 +20,11 @@ GRAYLOG_PASSWORD=$(echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d
 echo GRAYLOG_PASSWORD=$GRAYLOG_PASSWORD >> monitoramento2/var.env
 docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
-echo
-echo
 clear
+echo
+echo
+echo 'Instalação concluída, por favor aguarde 2 minutos para acesso aos seguintes sistemas:'
+echo
 echo PARA ACESSAR O ZABBIX INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER/
 echo 'Usuário padrão: Admin (atenção ao case sensitive)'
 echo 'senha padrão: zabbix'
@@ -36,5 +38,4 @@ echo
 echo PARA ACESSAR O GRAYLOG INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER:9000/
 echo 'Usuário padrão: admin'
 echo 'senha padrão: "definida durante o processo de instalação"'
-
 echo
