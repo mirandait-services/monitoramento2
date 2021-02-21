@@ -22,6 +22,7 @@ docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compos
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo
 echo
+clear
 echo PARA ACESSAR O ZABBIX INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER/
 echo 'Usuário padrão: Admin (atenção ao case sensitive)'
 echo 'senha padrão: zabbix'
