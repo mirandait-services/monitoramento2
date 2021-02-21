@@ -10,6 +10,9 @@ chmod +x /usr/local/bin/docker-compose
 #docker rm -f $(docker ps -a -q)
 #docker volume prune --force
 git clone https://github.com/mirandait-services/monitoramento
-read -p 'Por gentileza insira o endereço IP ou URL que sera utilizada para acesso ao Graylog: ' IP_SERVER
+#read -p 'Por gentileza insira o endereço IP ou URL que sera utilizada para acesso ao Graylog: ' IP_SERVER
+#echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento/ambiente/var.env
+IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento/ambiente/var.env
+
 docker-compose --env-file monitoramento/ambiente/var.env -f monitoramento/ambiente/docker-compose.yml up -d
