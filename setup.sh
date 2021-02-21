@@ -14,6 +14,8 @@ git clone https://github.com/mirandait-services/monitoramento2
 #echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
+RANDOMPEPPER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+echo RANDOMPEPPER=$RANDOMPEPPER >> monitoramento2/var.env
 clear
 echo Por gentileza insira a senha de acesso ao Graylog Server:
 GRAYLOG_PASSWORD=$(echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
