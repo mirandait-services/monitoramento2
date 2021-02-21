@@ -32,7 +32,7 @@ services:
       - graylog_data:/usr/share/graylog/data
     environment:
       - GRAYLOG_ROOT_TIMEZONE=America/Sao_Paulo
-      - GRAYLOG_PASSWORD_SECRET=$RANDOM
+      - GRAYLOG_PASSWORD_SECRET=$RANDOMPEPPER
       - GRAYLOG_ROOT_PASSWORD_SHA2=$GRAYLOG_PASSWORD
       - GRAYLOG_HTTP_EXTERNAL_URI=$IP_SERVER
     entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
