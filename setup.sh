@@ -24,7 +24,7 @@ docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compos
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo > monitoramento2/var.env
 echo
-echo "Aguarde enquanto as configurações personalizadas do ambiente são aplicadas"
+echo "\033[33;5mAguarde enquanto as configurações personalizadas do ambiente são aplicadas\033[0m"
 sleep 2m
 clear
 echo
