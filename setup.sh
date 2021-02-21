@@ -14,7 +14,7 @@ git clone https://github.com/mirandait-services/monitoramento2
 #echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/ambiente/var.env
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/ambiente/var.env
-echo -n "Insira a senha de acesso ao Graylog: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1 GRAYLOG_PASWORD
+echo -n "Insira a senha de acesso ao Graylog: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1 | GRAYLOG_PASWORD
 echo GRAYLOG_PASWORD=$GRAYLOG_PASWORD / > monitoramento2/var.env
 docker-compose --env-file monitoramento2/ambiente/var.env -f monitoramento2/ambiente/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
