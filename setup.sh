@@ -7,8 +7,8 @@ apt install docker-ce -y
 curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 rm -r monitoramento2/
-#docker rm -f $(docker ps -a -q)
-#docker volume prune --force
+docker rm -f $(docker ps -a -q)
+docker volume prune --force
 git clone https://github.com/mirandait-services/monitoramento2
 #read -p 'Por gentileza insira o endereço IP ou URL que sera utilizada para acesso ao Graylog: ' IP_SERVER
 #echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
