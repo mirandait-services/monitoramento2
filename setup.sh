@@ -16,6 +16,7 @@ IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
 echo insira a senha de acesso ao Graylog Server:
 GRAYLOG_PASSWORD=$(echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
+echo GRAYLOG_PASSWORD=$GRAYLOG_PASSWORD >> monitoramento2/var.env
 docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo
