@@ -33,7 +33,7 @@ services:
     environment:
       - GRAYLOG_ROOT_TIMEZONE=America/Sao_Paulo
       # CHANGE ME (must be at least 16 characters)!
-      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
+      #- GRAYLOG_PASSWORD_SECRET=somepasswordpepper
       # Password: admin
       - GRAYLOG_ROOT_PASSWORD_SHA2=$GRAYLOG_PASSWORD
       - GRAYLOG_HTTP_EXTERNAL_URI=$IP_SERVER
