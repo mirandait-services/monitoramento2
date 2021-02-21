@@ -19,10 +19,11 @@ IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo
 echo
 echo PARA ACESSAR O ZABBIX INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER/
-IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
+#IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo
 echo
 echo PARA ACESSAR O GRAFANA INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER:3000/
 echo
 echo
 echo PARA ACESSAR O GRAFANA INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER:9000/
+echo
