@@ -11,12 +11,12 @@ docker rm -f $(docker ps -a -q)
 docker volume prune --force
 git clone https://github.com/mirandait-services/monitoramento2
 #read -p 'Por gentileza insira o endereço IP ou URL que sera utilizada para acesso ao Graylog: ' IP_SERVER
-#echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/ambiente/var.env
+#echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
-echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/ambiente/var.env
-echo -n "Insira a senha de acesso ao Graylog: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1 | echo GRAYLOG_PASWORD
-echo GRAYLOG_PASWORD=$GRAYLOG_PASWORD / > monitoramento2/var.env
-docker-compose --env-file monitoramento2/ambiente/var.env -f monitoramento2/ambiente/docker-compose.yml up -d
+echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
+echo insira a senha de acesso ao Graylog Server:
+GRAYLOG_PASSWORD=$(echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
+docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo
 echo
