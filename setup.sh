@@ -25,7 +25,7 @@ IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo > monitoramento2/var.env
 echo
 echo "Aguarde enquanto as configurações personalizadas do ambiente são aplicadas"
-sleep 2m
+sleep 1m
 clear
 echo
 echo
