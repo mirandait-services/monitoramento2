@@ -45,6 +45,8 @@ echo PARA ACESSAR O GRAFANA INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: ht
 echo 'Usuário padrão: admin'
 echo 'senha padrão: admin'
 echo
+echo INSIRA A SEGUINTE URL PARA SE CONECTAR AO ZABBIX A PARTIR DO GRAFANA: http://$IP_SERVER/api_jsonrpc.php
+echo
 echo
 echo PARA ACESSAR O GRAYLOG INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER:9000/
 echo 'Usuário padrão: admin'
