@@ -68,10 +68,10 @@ services:
       - './zabbix/mysql:/var/lib/data'
     command: mysqld --character-set-server=utf8 --collation-server=utf8_bin
     environment:
-      - MYSQL_ROOT_PASSWORD=binariocloud
+      - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_DATABASE=zabbix
       - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=binariocloud
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
 
   zabbix-server:
     container_name: zabbix-server
@@ -87,7 +87,7 @@ services:
       - DB_SERVER_HOST=mysql
       - MYSQL_DATABASE=zabbix
       - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=binariocloud
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
     depends_on:
       - mysql
 
@@ -104,7 +104,7 @@ services:
       - DB_SERVER_HOST=mysql
       - MYSQL_DATABASE=zabbix
       - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=binariocloud
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       - PHP_TZ=America/Sao_Paulo
     depends_on:
       - mysql
