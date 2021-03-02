@@ -10,15 +10,14 @@ chmod +x /usr/local/bin/docker-compose
 #Identificação do IP principal do servidor de monitoramento
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
-echo
-echo
 #Configuração de senhas dos bancos de dados
 MYSQL_PASSWORD=$(/lib/cryptsetup/askpass "Insira a senha do serviço de bancos de dados:")
 echo MYSQL_PASSWORD=$MYSQL_PASSWORD >> monitoramento2/var.env
 #Password pepper aleatório para o Graylog
 RANDOMPEPPER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo RANDOMPEPPER=$RANDOMPEPPER >> monitoramento2/var.env
-clear
+echo
+echo
 #Configuração se senha de acesso ao Graylog
 GRAYLOG_PASSWORD_TEMP=$(/lib/cryptsetup/askpass "Insira a senha do Graylog:")
 GRAYLOG_PASSWORD=$(echo $GRAYLOG_PASSWORD_TEMP | tr -d '\n' | sha256sum | cut -d" " -f1)
