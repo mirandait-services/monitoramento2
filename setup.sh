@@ -26,7 +26,7 @@ clear
 #echo Por gentileza insira a senha de acesso ao Graylog Server:
 #GRAYLOG_PASSWORD=$(stty -echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
 GRAYLOG_PASSWORD_TEMP=$(/lib/cryptsetup/askpass "Insira a senha do Graylog:")
-GRAYLOG_PASSWORD=$($GRAYLOG_PASSWORD_TEMP | tr -d '\n' | sha256sum | cut -d" " -f1)
+GRAYLOG_PASSWORD=$(echo $GRAYLOG_PASSWORD_TEMP | tr -d '\n' | sha256sum | cut -d" " -f1)
 echo GRAYLOG_PASSWORD=$GRAYLOG_PASSWORD >> monitoramento2/var.env
 docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
