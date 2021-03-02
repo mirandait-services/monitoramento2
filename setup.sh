@@ -7,14 +7,13 @@ apt update
 apt install docker-ce -y
 curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-Reset do ambiente
+#Reset do ambiente
 rm -r monitoramento2/
 docker rm -f $(docker ps -a -q)
 docker volume prune --force
 git clone https://github.com/mirandait-services/monitoramento2
 #Configuração de senhas bancos de dados
-echo insira a senha que será utilizada no seviço de banco de dados:
-MYSQL_PASSWORD=$(/lib/cryptsetup/askpass "digite sua senha:")
+MYSQL_PASSWORD=$(/lib/cryptsetup/askpass "Insira a senha do serviço de bancos de dados:")
 echo MYSQL_PASSWORD=$MYSQL_PASSWORD > monitoramento2/var.env
 #Identificação do IP principal do servidor de monitoramento
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
