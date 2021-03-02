@@ -1,3 +1,4 @@
+#! /bin/sh
 #Instalação dos pacotes necessários
 apt update
 apt install apt-transport-https ca-certificates curl software-properties-common -y
