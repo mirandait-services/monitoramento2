@@ -53,6 +53,3 @@ echo
 echo PARA ACESSAR O GRAYLOG INSIRA O SEGUINTE ENDEREÇO EM SEU NAVEGADOR WEB: http://$IP_SERVER:9000/
 echo 'Usuário padrão: admin'
 echo 'senha padrão: "definida durante o processo de instalação"'
-echo
-echo
-exit
