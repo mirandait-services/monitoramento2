@@ -11,6 +11,7 @@ chmod +x /usr/local/bin/docker-compose
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
 echo IP_SERVER=http://$IP_SERVER:9000/ > monitoramento2/var.env
 #Configuração de senhas dos bancos de dados
+clear
 MYSQL_PASSWORD=$(/lib/cryptsetup/askpass "Insira a senha do serviço de bancos de dados:")
 echo MYSQL_PASSWORD=$MYSQL_PASSWORD >> monitoramento2/var.env
 #Password pepper aleatório para o Graylog
