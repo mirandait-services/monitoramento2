@@ -17,6 +17,7 @@ echo MYSQL_PASSWORD=$MYSQL_PASSWORD >> monitoramento2/var.env
 #Password pepper aleatório para o Graylog
 RANDOMPEPPER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo RANDOMPEPPER=$RANDOMPEPPER >> monitoramento2/var.env
+clear
 #Configuração se senha de acesso ao Graylog
 GRAYLOG_PASSWORD_TEMP=$(/lib/cryptsetup/askpass "Insira a senha do Graylog:")
 GRAYLOG_PASSWORD=$(echo $GRAYLOG_PASSWORD_TEMP | tr -d '\n' | sha256sum | cut -d" " -f1)
