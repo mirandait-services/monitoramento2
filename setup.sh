@@ -23,8 +23,9 @@ RANDOMPEPPER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo RANDOMPEPPER=$RANDOMPEPPER >> monitoramento2/var.env
 clear
 #Configuração se senha de acesso ao Graylog
-echo Por gentileza insira a senha de acesso ao Graylog Server:
-GRAYLOG_PASSWORD=$(stty -echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
+#echo Por gentileza insira a senha de acesso ao Graylog Server:
+#GRAYLOG_PASSWORD=$(stty -echo && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
+GRAYLOG_PASSWORD=$(/lib/cryptsetup/askpass "Insira a senha do serviço de bancos de dados:" && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1)
 echo GRAYLOG_PASSWORD=$GRAYLOG_PASSWORD >> monitoramento2/var.env
 docker-compose --env-file monitoramento2/var.env -f monitoramento2/docker-compose.yml up -d
 IP_SERVER=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
