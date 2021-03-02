@@ -57,3 +57,4 @@ echo 'Usuário padrão: admin'
 echo 'senha padrão: "definida durante o processo de instalação"'
 echo
 echo
+exit
